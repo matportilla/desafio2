@@ -130,7 +130,7 @@ SELECT fecha, cantidad FROM inscritos WHERE fuente='Blog' ORDER BY cantidad DESC
  2021-01-08 |       83
 (1 row)
 
---  ¿Cuántas personas en promedio se inscriben en un día?
+-- ¿Cuál es el promedio de personas inscritas por día?
 
 -- 1- Promedio diario
 SELECT AVG(cantidad), fecha AS promedio FROM inscritos GROUP BY fecha order by fecha ASC;
@@ -187,7 +187,7 @@ desafio2_matias_portilla_685=# SELECT fecha, sum(cantidad) FROM inscritos GROUP 
  2021-01-08 | 182
 (7 rows)
 
--- ¿Cuántas personas se registraron en promedio cada día a partir del tercer día?
+-- ¿Cuál es el promedio diario de personas inscritas a partir del tercer día en adelante, considerando únicamente las fechas posteriores o iguales a la indicada?
 
 SELECT AVG(cantidad) FROM (SELECT fecha, SUM(cantidad) as cantidad FROM inscritos GROUP BY fecha HAVING fecha >= date('2021-01-03')) AS avg_personas_por_dia;
 
